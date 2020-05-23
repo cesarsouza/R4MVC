@@ -37,7 +37,7 @@ namespace R4Mvc.Tools.Locators
         {
             var viewsRoot = GetViewsRoot(projectRoot);
             if (_fileLocator.DirectoryExists(viewsRoot))
-                foreach (var controllerPath in _fileLocator.GetDirectories(viewsRoot))
+                foreach (var controllerPath in _fileLocator.GetDirectories(viewsRoot, recurse: true))
                 {
                     var controllerName = Path.GetFileName(controllerPath);
                     yield return (string.Empty, controllerName, controllerPath);
