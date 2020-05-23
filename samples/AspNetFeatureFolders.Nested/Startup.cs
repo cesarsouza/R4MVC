@@ -27,13 +27,14 @@ namespace AspNetFeatureFolders
             });
 
 
-            services.AddMvc()
+            services.AddMvc(options => options.Conventions.Add(new FeatureConvention()))
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddRazorOptions(razorOptions =>
                 {
-                    // Standard feature views
-                    razorOptions.ViewLocationFormats.Add("/Features/{1}/{0}.cshtml");
-                    razorOptions.ViewLocationFormats.Add("/Features/{0}.cshtml");
+                    // Nested feature views
+                    razorOptions.ViewLocationExpanders.Add(new LocationExpander());
+                    razorOptions.ViewLocationFormats.Add("/Features/{2}/{1}/{0}.cshtml");
+                    razorOptions.ViewLocationFormats.Add("/Features/{2}/{0}.cshtml");
                     razorOptions.ViewLocationFormats.Add("/Features/Shared/{0}.cshtml");
 
                     // Area feature views
