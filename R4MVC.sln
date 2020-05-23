@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleModels", "samples\Sam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSimple.NetCore3", "samples\AspNetSimple.NetCore3\AspNetSimple.NetCore3.csproj", "{4609AF1D-0942-43DA-9979-F92972A22A7A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetFeatureFolders.Nested", "samples\AspNetFeatureFolders.Nested\AspNetFeatureFolders.Nested.csproj", "{545AA550-FA6A-49ED-9C32-8AD7BE6CF5EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{4609AF1D-0942-43DA-9979-F92972A22A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4609AF1D-0942-43DA-9979-F92972A22A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4609AF1D-0942-43DA-9979-F92972A22A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{545AA550-FA6A-49ED-9C32-8AD7BE6CF5EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{545AA550-FA6A-49ED-9C32-8AD7BE6CF5EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{545AA550-FA6A-49ED-9C32-8AD7BE6CF5EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{545AA550-FA6A-49ED-9C32-8AD7BE6CF5EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +97,7 @@ Global
 		{75510011-133B-4A05-AD09-A399CDBFA3A5} = {30626644-0E8A-4610-A0A9-274E91F1A037}
 		{8F6D7DDE-98A0-4808-BD91-C1CF2E0AAC69} = {B9FF7D5E-784B-4C4A-B6E6-286C1E3D131E}
 		{4609AF1D-0942-43DA-9979-F92972A22A7A} = {B9FF7D5E-784B-4C4A-B6E6-286C1E3D131E}
+		{545AA550-FA6A-49ED-9C32-8AD7BE6CF5EB} = {B9FF7D5E-784B-4C4A-B6E6-286C1E3D131E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B90C19F2-2B5E-42AD-AE1D-27AD17E4DDB4}
