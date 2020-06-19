@@ -24,8 +24,6 @@ public static partial class MVC
     public static R4Mvc.ProductsAreaClass Products => s_Products;
     public static readonly AspNetFeatureFolders.Features.Calculator.CalculatorController Calculator = new AspNetFeatureFolders.Features.Calculator.R4MVC_CalculatorController();
     public static readonly AspNetFeatureFolders.Features.Nested.NestedCalculator.NestedCalculatorController NestedCalculator = new AspNetFeatureFolders.Features.Nested.NestedCalculator.R4MVC_NestedCalculatorController();
-    public static readonly R4Mvc.EditorTemplatesController EditorTemplates = new R4Mvc.EditorTemplatesController();
-    public static readonly R4Mvc.NestedController Nested = new R4Mvc.NestedController();
     public static readonly R4Mvc.SharedController Shared = new R4Mvc.SharedController();
 }
 
@@ -44,57 +42,6 @@ namespace R4Mvc
         }
 
         public static Dummy Instance = new Dummy();
-    }
-
-    [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
-    public partial class EditorTemplatesController
-    {
-        public class ViewsClass
-        {
-            static readonly _ViewNamesClass s_ViewNames = new _ViewNamesClass();
-            public _ViewNamesClass ViewNames => s_ViewNames;
-            public class _ViewNamesClass
-            {
-                public readonly string NestedEditorTemplate = "NestedEditorTemplate";
-                public readonly string SharedEditorTemplate = "SharedEditorTemplate";
-            }
-
-            public readonly string NestedEditorTemplate = "~/Features/Nested/NestedCalculator/EditorTemplates/NestedEditorTemplate.cshtml";
-            public readonly string SharedEditorTemplate = "~/Features/Shared/EditorTemplates/SharedEditorTemplate.cshtml";
-        }
-
-        static readonly ViewsClass s_Views = new ViewsClass();
-        public ViewsClass Views => s_Views;
-    }
-
-    [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
-    public partial class NestedController
-    {
-        public class ViewsClass
-        {
-            static readonly _ViewNamesClass s_ViewNames = new _ViewNamesClass();
-            public _ViewNamesClass ViewNames => s_ViewNames;
-            public class _ViewNamesClass
-            {
-            }
-
-            static readonly _NestedCalculatorClass s_NestedCalculator = new _NestedCalculatorClass();
-            public _NestedCalculatorClass NestedCalculator => s_NestedCalculator;
-            public partial class _NestedCalculatorClass
-            {
-                static readonly _ViewNamesClass s_ViewNames = new _ViewNamesClass();
-                public _ViewNamesClass ViewNames => s_ViewNames;
-                public class _ViewNamesClass
-                {
-                    public readonly string Index = "Index";
-                }
-
-                public readonly string Index = "~/Features/Nested/NestedCalculator/Index.cshtml";
-            }
-        }
-
-        static readonly ViewsClass s_Views = new ViewsClass();
-        public ViewsClass Views => s_Views;
     }
 
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]

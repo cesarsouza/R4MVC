@@ -111,12 +111,7 @@ namespace AspNetSimple.NetCore3.Controllers
             public _ViewNamesClass ViewNames => s_ViewNames;
             public class _ViewNamesClass
             {
-                public readonly string Index = "Index";
-                public readonly string Privacy = "Privacy";
             }
-
-            public readonly string Index = "~/Views/Home/Index.cshtml";
-            public readonly string Privacy = "~/Views/Home/Privacy.cshtml";
         }
 
         [GeneratedCode("R4Mvc", "1.0")]

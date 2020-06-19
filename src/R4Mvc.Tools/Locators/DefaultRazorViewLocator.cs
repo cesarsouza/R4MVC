@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+
 using R4Mvc.Tools.Extensions;
+
 using Path = System.IO.Path;
 
 namespace R4Mvc.Tools.Locators
@@ -39,8 +42,15 @@ namespace R4Mvc.Tools.Locators
             if (_fileLocator.DirectoryExists(viewsRoot))
                 foreach (var controllerPath in _fileLocator.GetDirectories(viewsRoot, recurse: true))
                 {
-                    var controllerName = Path.GetFileName(controllerPath);
-                    yield return (string.Empty, controllerName, controllerPath);
+                    if (controllerPath.EndsWith("Shared"))
+                        yield return (string.Empty, "Shared", controllerPath);
+
+                    foreach (var fileName in _fileLocator.GetFiles(controllerPath, "*Controller.cs"))
+                    {
+                        var controllerName = Path.GetFileNameWithoutExtension(fileName);
+                        controllerName = controllerName.Remove(controllerName.LastIndexOf("Controller"), "Controller".Length);
+                        yield return (string.Empty, controllerName, controllerPath);
+                    }
                 }
 
             var areasPath = Path.Combine(projectRoot, AreasFolder);
@@ -62,14 +72,23 @@ namespace R4Mvc.Tools.Locators
         {
             foreach (var file in _fileLocator.GetFiles(controllerPath, "*.cshtml"))
             {
+                if (file.EndsWith("_ViewImports.cshtml"))
+                    continue;
                 yield return GetView(projectRoot, file, controllerName, areaName);
             }
 
-            foreach (var directory in _fileLocator.GetDirectories(controllerPath))
+            foreach (var directory in _fileLocator.GetDirectories(controllerPath, recurse: true))
             {
                 foreach (var file in _fileLocator.GetFiles(directory, "*.cshtml"))
                 {
-                    yield return GetView(projectRoot, file, controllerName, areaName, Path.GetFileName(directory));
+                    if (file.EndsWith("_ViewImports.cshtml"))
+                        continue;
+                    string relative = directory.Replace(controllerPath, "");
+                    IEnumerable<string> parts = relative.Split(new[] { Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar }, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.First() == controllerName)
+                        parts = parts.Skip(1);
+                    relative = (parts.Count() > 0) ? string.Join("_", parts) : null;
+                    yield return GetView(projectRoot, file, controllerName, areaName, relative);
                 }
             }
         }
