@@ -27,7 +27,8 @@ namespace R4Mvc.Tools.Services
             foreach (var tree in compiler.SyntaxTrees.Where(x => !x.FilePath.EndsWith(".generated.cs")))
             {
                 // if syntaxtree has errors, skip code generation
-                if (tree.GetDiagnostics().Any(x => x.Severity == DiagnosticSeverity.Error)) continue;
+                //if (tree.GetDiagnostics().Any(x => x.Severity == DiagnosticSeverity.Error))
+                //    continue;
 
                 // this first part, finds all the controller classes, modifies them and saves the changes
                 var controllerRewriter = new ControllerRewriter(compiler);
